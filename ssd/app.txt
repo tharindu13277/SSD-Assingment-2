@@ -1,0 +1,20 @@
+const express =require('express')
+
+const app = express()
+
+const {google} = require('googleapis')
+const OAuth2Data = require('./credentials.json')
+
+const CLIENT_ID = OAuth2Data.web.client_id
+const CLIENT_SECRET = OAuth2Data.web.client_secret
+const REDIRECT_URI = OAuth2Data.web.redirect_uris[0] 
+
+app.set("view engine", "ejs")
+
+app.get('/', (req, res)=>{
+    res.render('index')
+})
+
+app.listen(3000, ()=>{
+    console.log('application is running on port 3000')
+})
